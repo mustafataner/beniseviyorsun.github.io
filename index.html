@@ -2,35 +2,37 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beni Seviyor Musun?</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       body {
-        font-size: 18px;
+        font-size: 16px;
       }
       .button-container {
         display: flex;
         justify-content: space-between;
-        margin: 10px;
+        margin: 20px;
       }
       #no-button {
         order: 1;
         position: relative;
+        font-size: 24px;
         background-color: red;
         color: white;
-        font-size: 20px;
-        padding: 10px 15px;
+        padding: 10px;
         border: none;
         border-radius: 5px;
+        cursor: pointer;
       }
       #yes-button {
         order: 2;
+        font-size: 24px;
         background-color: green;
         color: white;
-        font-size: 20px;
-        padding: 10px 15px;
+        padding: 10px;
         border: none;
         border-radius: 5px;
+        cursor: pointer;
       }
       input[type="radio"] {
         margin-right: 10px;
@@ -62,12 +64,13 @@
         position: absolute;
         top: 5px;
         right: 5px;
+        font-size: 24px;
         cursor: pointer;
       }
     </style>
   </head>
   <body>
-    <h1>Beni Seviyor Musun?</h1>
+    <h1 style="text-align:center; font-size: 32px;">Beni Seviyor Musun?</h1>
     <form>
       <p></p>
       <div class="button-container">
@@ -78,7 +81,7 @@
         <div class="popup">
           <div class="popup-content">
             <span class="close-popup">&times;</span>
-            <p>Beni sevdiğini biliyordum!</p>
+            <p style="font-size: 24px;">Beni sevdiğini biliyordum!</p>
           </div>
         </div>
       </div>
@@ -99,7 +102,4 @@
       });
       
       var yesButton = document.getElementById("yes-button");
-      yesButton.addEventListener("click", function() {
-        var lovesMe = document.querySelector(".loves-me");
-        lovesMe.style.display = "block";
-        var closePopup = document.querySelector(".close-popup");
+      yesButton
