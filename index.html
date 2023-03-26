@@ -1,8 +1,8 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Meta etiketi eklendi -->
     <title>Beni Seviyor Musun?</title>
     <style>
       .button-container {
@@ -13,29 +13,16 @@
       #no-button {
         order: 1;
         position: relative;
-        background-color: red; /* Butonun arka plan rengi */
-        color: white; /* Butonun yazı rengi */
-        font-size: 24px; /* Yazı font boyutu */
-        padding: 10px 20px; /* Butonun iç boşluğu */
-        border: none; /* Butonun kenarlığı */
-        border-radius: 5px; /* Butonun kenar yuvarlaklığı */
       }
       #yes-button {
         order: 2;
-        background-color: green;
-        color: white;
-        font-size: 24px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
       }
       input[type="radio"] {
-        margin-right: 10px;
+        margin-right: 20px;
       }
       label {
         display: inline-block;
-        margin-bottom: 10px;
-        font-size: 24px;
+        margin-bottom: 20px;
       }
       .loves-me {
         display: none;
@@ -61,10 +48,6 @@
         top: 5px;
         right: 5px;
         cursor: pointer;
-        font-size: 24px;
-      }
-      h1 {
-        font-size: 32px;
       }
     </style>
   </head>
@@ -91,4 +74,24 @@
         var bounds = button.getBoundingClientRect();
         var x = Math.random() * (window.innerWidth - bounds.width);
         var y = Math.random() * (window.innerHeight - bounds.height);
-        button.style.left
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+      }
+
+      var noButton = document.getElementById("no-button");
+      noButton.addEventListener("mouseover", function() {
+        moveButton();
+      });
+
+      var yesButton = document.getElementById("yes-button");
+      yesButton.addEventListener("click", function() {
+        var lovesMe = document.querySelector(".loves-me");
+        lovesMe.style.display = "block";
+        var closePopup = document.querySelector(".close-popup");
+        closePopup.addEventListener("click", function() {
+          lovesMe.style.display = "none";
+        });
+      });
+    </script>
+  </body>
+</html>
