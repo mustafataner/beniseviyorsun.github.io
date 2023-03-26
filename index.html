@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title>Beni Seviyor Musun?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+      body {
+        font-size: 18px;
+      }
       .button-container {
         display: flex;
         justify-content: space-between;
@@ -12,9 +16,21 @@
       #no-button {
         order: 1;
         position: relative;
+        background-color: red;
+        color: white;
+        font-size: 20px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
       }
       #yes-button {
         order: 2;
+        background-color: green;
+        color: white;
+        font-size: 20px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
       }
       input[type="radio"] {
         margin-right: 10px;
@@ -87,10 +103,3 @@
         var lovesMe = document.querySelector(".loves-me");
         lovesMe.style.display = "block";
         var closePopup = document.querySelector(".close-popup");
-        closePopup.addEventListener("click", function() {
-          lovesMe.style.display = "none";
-        });
-      });
-    </script>
-  </body>
-</html>
