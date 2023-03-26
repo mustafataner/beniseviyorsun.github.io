@@ -2,37 +2,32 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Meta etiketi eklendi -->
     <title>Beni Seviyor Musun?</title>
     <style>
-      body {
-        font-size: 16px;
-      }
       .button-container {
         display: flex;
         justify-content: space-between;
-        margin: 20px;
+        margin: 10px;
       }
       #no-button {
         order: 1;
         position: relative;
-        font-size: 24px;
-        background-color: red;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+        background-color: red; /* Butonun arka plan rengi */
+        color: white; /* Butonun yazı rengi */
+        font-size: 24px; /* Yazı font boyutu */
+        padding: 10px 20px; /* Butonun iç boşluğu */
+        border: none; /* Butonun kenarlığı */
+        border-radius: 5px; /* Butonun kenar yuvarlaklığı */
       }
       #yes-button {
         order: 2;
-        font-size: 24px;
         background-color: green;
         color: white;
-        padding: 10px;
+        font-size: 24px;
+        padding: 10px 20px;
         border: none;
         border-radius: 5px;
-        cursor: pointer;
       }
       input[type="radio"] {
         margin-right: 10px;
@@ -40,6 +35,7 @@
       label {
         display: inline-block;
         margin-bottom: 10px;
+        font-size: 24px;
       }
       .loves-me {
         display: none;
@@ -64,13 +60,16 @@
         position: absolute;
         top: 5px;
         right: 5px;
-        font-size: 24px;
         cursor: pointer;
+        font-size: 24px;
+      }
+      h1 {
+        font-size: 32px;
       }
     </style>
   </head>
   <body>
-    <h1 style="text-align:center; font-size: 32px;">Beni Seviyor Musun?</h1>
+    <h1>Beni Seviyor Musun?</h1>
     <form>
       <p></p>
       <div class="button-container">
@@ -81,7 +80,7 @@
         <div class="popup">
           <div class="popup-content">
             <span class="close-popup">&times;</span>
-            <p style="font-size: 24px;">Beni sevdiğini biliyordum!</p>
+            <p>Beni sevdiğini biliyordum!</p>
           </div>
         </div>
       </div>
@@ -92,14 +91,4 @@
         var bounds = button.getBoundingClientRect();
         var x = Math.random() * (window.innerWidth - bounds.width);
         var y = Math.random() * (window.innerHeight - bounds.height);
-        button.style.left = x + "px";
-        button.style.top = y + "px";
-      }
-      
-      var noButton = document.getElementById("no-button");
-      noButton.addEventListener("mouseover", function() {
-        moveButton();
-      });
-      
-      var yesButton = document.getElementById("yes-button");
-      yesButton
+        button.style.left
