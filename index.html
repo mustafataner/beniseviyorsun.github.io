@@ -1,97 +1,115 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Beni Seviyor Musun?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      .button-container {
-        display: flex;
-        justify-content: space-between;
-        margin: 10px;
-      }
-      #no-button {
-        order: 1;
-        position: relative;
-      }
-      #yes-button {
-        order: 2;
-      }
-      input[type="radio"] {
-        margin-right: 20px;
-      }
-      label {
-        display: inline-block;
-        margin-bottom: 20px;
-      }
-      .loves-me {
-        display: none;
-      }
-      .popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .popup-content {
-        background: #fff;
-        padding: 20px;
-        border-radius: 5px;
-      }
-      .close-popup {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        cursor: pointer;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #5a5a5a;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+            width: 100%;
+        }
+        button {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        #no-button {
+            background-color: #ff6347; /* Tomato */
+        }
+        #yes-button {
+            background-color: #4682b4; /* SteelBlue */
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 400px;
+        }
+        .close-popup {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            color: #333;
+            font-size: 24px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <h1>Beni Seviyor Musun?</h1>
     <form>
-      <p></p>
-      <div class="button-container">
-        <label for="no-button"><button id="no-button" type="button" name="answer" value="no">Hayır</button></label>
-        <label for="yes-button"><button id="yes-button" type="button" name="answer" value="yes">Evet</button></label>
-      </div>
-      <div class="loves-me">
-        <div class="popup">
-          <div class="popup-content">
-            <span class="close-popup">&times;</span>
-            <p>Beni sevdiğini biliyordum!</p>
-          </div>
+        <div class="button-container">
+            <button id="no-button" type="button">Hayır</button>
+            <button id="yes-button" type="button">Evet</button>
         </div>
-      </div>
+        <div class="popup">
+            <div class="popup-content">
+                <span class="close-popup">&times;</span>
+                <p>Beni sevdiğini biliyordum!  https://rumet.learnpoint.tech/ </p>
+            </div>
+        </div>
     </form>
     <script>
-      function moveButton() {
-        var button = document.getElementById("no-button");
-        var bounds = button.getBoundingClientRect();
-        var x = Math.random() * (window.innerWidth - bounds.width);
-        var y = Math.random() * (window.innerHeight - bounds.height);
-        button.style.left = x + "px";
-        button.style.top = y + "px";
-      }
+        function moveButton() {
+            var button = document.getElementById("no-button");
+            var bounds = button.getBoundingClientRect();
+            var x = Math.random() * (window.innerWidth - bounds.width);
+            var y = Math.random() * (window.innerHeight - bounds.height);
+            button.style.position = 'absolute';
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
 
-      var noButton = document.getElementById("no-button");
-      noButton.addEventListener("mouseover", function() {
-        moveButton();
-      });
+        var noButton = document.getElementById("no-button");
+        noButton.addEventListener("mouseover", moveButton);
 
-      var yesButton = document.getElementById("yes-button");
-      yesButton.addEventListener("click", function() {
-        var lovesMe = document.querySelector(".loves-me");
-        lovesMe.style.display = "block";
+        var yesButton = document.getElementById("yes-button");
+        yesButton.addEventListener("click", function() {
+            var popup = document.querySelector(".popup");
+            popup.style.display = "flex";
+        });
+
         var closePopup = document.querySelector(".close-popup");
         closePopup.addEventListener("click", function() {
-          lovesMe.style.display = "none";
+            var popup = document.querySelector(".popup");
+            popup.style.display = "none";
         });
-      });
     </script>
-  </body>
+</body>
 </html>
