@@ -35,10 +35,10 @@
             transition: background-color 0.3s;
         }
         #no-button {
-            background-color: #ff6347; /* Tomato */
+            background-color: #ff6347;
         }
         #yes-button {
-            background-color: #4682b4; /* SteelBlue */
+            background-color: #4682b4;
         }
         button:hover {
             opacity: 0.9;
@@ -53,6 +53,7 @@
             display: none;
             justify-content: center;
             align-items: center;
+            z-index: 1000; /* Ensure it's on top of other elements */
         }
         .popup-content {
             background: #fff;
@@ -60,7 +61,7 @@
             border-radius: 5px;
             width: 90%;
             max-width: 400px;
-            position: relative; /* Ensure the popup content is relative for absolute positioning of close button */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Added shadow for better visibility */
         }
         .close-popup {
             position: absolute;
