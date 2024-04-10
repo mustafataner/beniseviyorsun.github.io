@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Beni Seviyor Musun?</title>
@@ -22,8 +22,8 @@
         .button-container {
             display: flex;
             justify-content: space-around;
-            margin: 20px;
             width: 100%;
+            padding: 20px;
         }
         button {
             border: none;
@@ -32,16 +32,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s;
-        }
-        #no-button {
-            background-color: #ff6347;
-        }
-        #yes-button {
-            background-color: #4682b4;
-        }
-        button:hover {
-            opacity: 0.9;
+            background-color: #4682b4; /* Uniform color for simplicity */
         }
         .popup {
             position: fixed;
@@ -51,32 +42,30 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
             display: none;
-            justify-content: center;
             align-items: center;
-            z-index: 1000; /* Ensure it's on top of other elements */
+            justify-content: center;
         }
         .popup-content {
-            background: #fff;
+            background: white;
             padding: 20px;
             border-radius: 5px;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Added shadow for better visibility */
+            width: auto;
+            max-width: 300px;
+            text-align: center;
         }
         .close-popup {
             position: absolute;
-            top: 5px;
-            right: 5px;
+            top: 10px;
+            right: 10px;
             cursor: pointer;
-            color: #333;
             font-size: 24px;
+            color: #333;
         }
         a {
-            display: block;
-            margin-top: 20px;
-            text-align: center;
             color: #4682b4;
             text-decoration: none;
+            margin-top: 15px;
+            display: inline-block;
         }
         a:hover {
             text-decoration: underline;
@@ -85,43 +74,35 @@
 </head>
 <body>
     <h1>Beni Seviyor Musun?</h1>
-    <form>
-        <div class="button-container">
-            <button id="no-button" type="button">Hayır</button>
-            <button id="yes-button" type="button">Evet</button>
+    <div class="button-container">
+        <button id="no-button">Hayır</button>
+        <button id="yes-button">Evet</button>
+    </div>
+    <div class="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <p>Beni sevdiğini biliyordum!</p>
+            <a href="https://rumet.learnpoint.tech/" target="_blank">Daha fazla bilgi için tıklayın</a>
         </div>
-        <div class="popup">
-            <div class="popup-content">
-                <span class="close-popup">&times;</span>
-                <p>Beni sevdiğini biliyordum!</p>
-                <a href="https://rumet.learnpoint.tech/" target="_blank">Daha fazla bilgi için tıklayın</a>
-            </div>
-        </div>
-    </form>
+    </div>
+
     <script>
-        function moveButton() {
-            var button = document.getElementById("no-button");
-            var bounds = button.getBoundingClientRect();
-            var x = Math.random() * (window.innerWidth - bounds.width);
-            var y = Math.random() * (window.innerHeight - bounds.height);
-            button.style.position = 'absolute';
-            button.style.left = x + 'px';
-            button.style.top = y + 'px';
-        }
-
-        var noButton = document.getElementById("no-button");
-        noButton.addEventListener("mouseover", moveButton);
-
-        var yesButton = document.getElementById("yes-button");
-        yesButton.addEventListener("click", function() {
-            var popup = document.querySelector(".popup");
-            popup.style.display = "flex";
+        document.getElementById("no-button").addEventListener("mouseover", function() {
+            const button = this;
+            const bounds = button.getBoundingClientRect();
+            let newX = Math.random() * (window.innerWidth - bounds.width);
+            let newY = Math.random() * (window.innerHeight - bounds.height);
+            button.style.position = 'fixed';
+            button.style.left = newX + 'px';
+            button.style.top = newY + 'px';
         });
 
-        var closePopup = document.querySelector(".close-popup");
-        closePopup.addEventListener("click", function() {
-            var popup = document.querySelector(".popup");
-            popup.style.display = "none";
+        document.getElementById("yes-button").addEventListener("click", function() {
+            document.querySelector(".popup").style.display = 'flex';
+        });
+
+        document.querySelector(".close-popup").addEventListener("click", function() {
+            this.parentElement.parentElement.style.display = 'none';
         });
     </script>
 </body>
