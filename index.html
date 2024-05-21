@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
             color: #333;
             margin: 0;
             padding: 0;
@@ -15,24 +15,31 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
         }
         h1 {
-            color: #5a5a5a;
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
         .button-container {
             display: flex;
-            justify-content: space-around;
-            width: 100%;
-            padding: 20px;
+            justify-content: center;
+            gap: 20px;
         }
         button {
             border: none;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 15px 30px;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 16px;
-            background-color: #4682b4; /* Uniform color for simplicity */
+            font-size: 1em;
+            background-color: #ff6f61;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff4b2b;
+            transform: scale(1.1);
         }
         .popup {
             position: fixed;
@@ -47,11 +54,12 @@
         }
         .popup-content {
             background: white;
-            padding: 20px;
-            border-radius: 5px;
+            padding: 30px;
+            border-radius: 10px;
             width: auto;
-            max-width: 300px;
+            max-width: 400px;
             text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         .close-popup {
             position: absolute;
@@ -62,21 +70,25 @@
             color: #333;
         }
         a {
-            color: #4682b4;
+            color: #ff6f61;
             text-decoration: none;
             margin-top: 15px;
             display: inline-block;
+            transition: color 0.3s ease;
         }
         a:hover {
-            text-decoration: underline;
+            color: #ff4b2b;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Beni Seviyor Musun?</h1>
-    <div class="button-container">
-        <button id="no-button">Hayır</button>
-        <button id="yes-button">Evet</button>
+    <div class="content">
+        <h1>Beni Seviyor Musun?</h1>
+        <div class="button-container">
+            <button id="no-button">Hayır</button>
+            <button id="yes-button">Evet</button>
+        </div>
     </div>
     <div class="popup">
         <div class="popup-content">
